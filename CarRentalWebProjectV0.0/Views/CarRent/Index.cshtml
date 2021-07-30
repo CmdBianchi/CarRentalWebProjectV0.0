@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Models.CarRent>
+
+@{
+    ViewData["Title"] = "Lista de clientes";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="NovoCliente" class="btn btn-success ">Novo Cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicensePlate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Withdrawal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Devolution)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicensePlate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Withdrawal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Devolution)
+            </td>
+            <td>
+                <a asp-action="AtualizarCliente" asp-route-id="@item.Id" class="btn btn-primary">Atuzalizar</a> |
+                <form asp-action="ExluirCliente" asp-route-id="@item.Id">
+                    <button type ="submit" class="btn btn-danger">Excluir</button>
+                </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
