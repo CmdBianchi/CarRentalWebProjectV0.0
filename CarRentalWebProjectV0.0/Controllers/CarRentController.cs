@@ -29,6 +29,19 @@ namespace Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> UpdateCarRent(int Id) {
+            CarRent carRent = await _context.CarRent.FindAsync(Id);
 
+            return View(carRent);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateCarRent(CarRent carRent) {
+            _context.CarRent.Update(carRent);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
