@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<Models.CarRent>
-
 @{
     ViewData["Title"] = "Lista de clientes";
 }
 
-<h1>Index</h1>
+<h1>Clientes</h1>
 
 <p>
-    <a asp-action="NovoCliente" class="btn btn-success ">Novo Cliente</a>
+    <a asp-action="NewCarRent" class="btn btn-success ">Novo Cliente</a>
 </p>
 <table class="table">
     <thead>
@@ -79,8 +78,8 @@
                 @Html.DisplayFor(modelItem => item.Devolution)
             </td>
             <td>
-                <a asp-action="AtualizarCliente" asp-route-id="@item.Id" class="btn btn-primary">Atuzalizar</a> |
-                <form asp-action="ExluirCliente" asp-route-id="@item.Id">
+                <a asp-action="AtualizarCliente" asp-route-Id="@item.Id" class="btn btn-primary">Atuzalizar</a> |
+                <form asp-action="ExluirCliente" asp-route-Id="@item.Id">
                     <button type ="submit" class="btn btn-danger">Excluir</button>
                 </form>
             </td>
